@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>3e24d027-9049-4b97-ab4d-7475dae0e21b</ProjectGuid>
+    <ProjectGuid>{21f19e0a-6769-47f9-a155-72881d3e4ce6}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>PythonLab1Task5.py</StartupFile>
     <SearchPath>
@@ -21,7 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="PythonLab1Task5.py" />
+    <Compile Include="..\..\..\PythonLab1Task5.py">
+      <Link>PythonLab1Task5.py</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
