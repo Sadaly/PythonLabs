@@ -1,4 +1,5 @@
 # -*- coding: cp1251 -*-
+import re
 
 def MaxLettersInARow(stroka):
     alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя'
@@ -17,3 +18,7 @@ def MaxLettersInARow(stroka):
             return max_counter + 1
     return 0
     
+def MinNaturalNumber(stroka):
+    numbers = [int(i) for i in re.findall(r'\d+', stroka)]
+    min_number = min(numbers)
+    return min_number
