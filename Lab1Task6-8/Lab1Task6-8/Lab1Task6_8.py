@@ -22,3 +22,8 @@ def MinNaturalNumber(stroka):
     numbers = [int(i) for i in re.findall(r'\d+', stroka)]
     min_number = min(numbers)
     return min_number
+
+def FindMaxConsecutiveDigits(stroka):
+    found_digits = re.findall(r'\d+', stroka)
+    max_length = max(len(digits) for digits in found_digits)
+    return max_length
