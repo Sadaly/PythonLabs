@@ -13,3 +13,9 @@ def FindTwoMinElements(arr):
         return None
     sorted_arr = sorted(arr)
     return sorted_arr[:2]
+
+def FindClosestElement(R, arr):
+    if not arr:
+        return None
+    closest_element = min(arr, key=lambda x: abs(x - R))
+    return closest_element
