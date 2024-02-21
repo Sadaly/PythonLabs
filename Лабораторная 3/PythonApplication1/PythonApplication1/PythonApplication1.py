@@ -24,11 +24,33 @@ class Rectangle:
         return width * height
 
     def __str__(self):
-        return f"Rectangle (top left: {self.top_left}, top right: {self.top_right}), (bottom left: {self.bottom_left}, bottom right: {self.bottom_right})"
-
-
-
+        return f"Прямоугольник (A: {self.top_left}, B: {self.top_right}, C: {self.bottom_left}, D: {self.bottom_right})"
     
+class Quad:
+    def __init__(self, top_left, top_right, bottom_left, bottom_right):
+        self.top_left = top_left
+        self.top_right = top_right
+        self.bottom_left = bottom_left
+        self.bottom_right = bottom_right
+
+    def area(self):
+        width = segment_length(self.top_left, self.top_right)
+        return width * width
+
+    def __str__(self):
+        return f"Квадрат (A: {self.top_left}, B: {self.top_right}, C: {self.bottom_left}, D: {self.bottom_right})"
+
+def compare(t1, t2):
+    area1 = t1.area()
+    area2 = t2.area()
+    
+    if (area1 > area2):
+        print(f'{t1} больше {t2}')
+    elif (area1 == area2):
+        print(f'{t1} равен {t2}')
+    elif (area1 < area2):
+        print(f'{t1} меньше {t2}')
+        
 def is_intersect(t1, t2):
     def find_intersection(point1, point2, point3, point4): # Проверяем пересекаются ли 2 отрезка
         # Проверка на параллельность
