@@ -7,3 +7,9 @@ def FindUniqueElement(arr):
         if count == 1:
             return num
     return None
+
+def FindTwoMinElements(arr):
+    if len(arr) < 2:
+        return None
+    sorted_arr = sorted(arr)
+    return sorted_arr[:2]
