@@ -19,3 +19,38 @@ def SortByQuadDeviation(strings):
 
     return sorted(strings, key=quad_deviation)
 
+def SortByFreqDeviation(strings):
+    def freq_deviation(s, common_char):
+        common_freq = s.count(common_char) / len(s)
+        return (ord(common_char) - s.count(common_char))**2 / common_freq
+
+    most_common_char = max(set("".join(strings)), key=lambda x: "".join(strings).count(x))
+    return sorted(strings, key=lambda x: freq_deviation(x, most_common_char))
+
+# ѕользователь выбирает задачу
+task_choice = int(input("¬ыберете задание (1, 2, 3 или 4):\n1. ¬ пор€дке увеличени€ среднего веса ASCII-кода символа строки.\n2. ¬ пор€дке увеличени€ медианного значени€ выборки строк (прошлое медианное значение удал€етс€ из выборки и производитс€ поиск нового медианного значени€\n3. ¬ пор€дке увеличени€ квадратичного отклонени€ между наибольшим ASCII-кодом символа строки и разницы в ASCII-кодах пар зеркально расположенных символов строки (относительно ее середины).\n4. ¬ пор€дке увеличение квадратичного отклонени€ частоты встречаемости самого распространенного символа в наборе строк от частоты его встречаемости в данной строке.\n"))
+
+# „тение строк с клавиатуры
+strings = []
+num_strings = int(input("¬ведите номер строки: "))
+for i in range(num_strings):
+    string_input = input(f"¬ведите строку {i+1}: ")
+    strings.append(string_input)
+
+# ¬ыбор и выполнение задачи
+if task_choice == 1:
+    result = SortByAvgAsciiWeight(strings)
+elif task_choice == 2:
+    result = SortByMedianAsciiDifference(strings)
+elif task_choice == 3:
+    result = SortByQuadDeviation(strings)
+elif task_choice == 4:
+    result = SortByFreqDeviation(strings)
+else:
+    result = None
+
+# ¬ывод результата
+if result:
+    print("ќтсортированные строки:")
+    for string in result:
+        print(string)
