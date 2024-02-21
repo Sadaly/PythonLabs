@@ -19,3 +19,13 @@ def FindClosestElement(R, arr):
         return None
     closest_element = min(arr, key=lambda x: abs(x - R))
     return closest_element
+
+def FindPositiveDivisors(nums):
+    unique_divisors = set()
+
+    for num in nums:
+        for i in range(1, num + 1):
+            if num % i == 0:
+                unique_divisors.add(i)
+
+    return list(unique_divisors)
